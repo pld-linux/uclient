@@ -92,8 +92,6 @@ install registry/.libs/Registry.so.0.0.0U \
 ln -sf Registry.so.0.0.0 $RPM_BUILD_ROOT%{_libdir}/Registry.so.0
 ln -sf Registry.so.0.0.0 $RPM_BUILD_ROOT%{_libdir}/Registry.so
 
-gzip -9 AUTHORS README* userdoc.txt
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -102,7 +100,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc AUTHORS README* userdoc.txt
 %attr(755,root,root) %{_bindir}/*
 %dir %{_datadir}/forge
 %attr(755,root,root) %{_datadir}/forge/*.sh
