@@ -9,6 +9,8 @@ Source0:	ftp://victor.worldforge.org/pub/worldforge/clients/uclient/%{name}-%{ve
 # Source0-md5:	492d89d9ce5c6df13fc586ddec70f0a0
 Patch0:		%{name}-am.patch
 Patch1:		%{name}-vardir.patch
+Patch2:		%{name}-gcc-3.3.patch
+Patch3:		%{name}-overload.patch
 BuildRequires:	Atlas-C++-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -17,6 +19,7 @@ BuildRequires:	janus-devel
 BuildRequires:	libxml-devel
 BuildRequires:	python-devel
 BuildRequires:	skstream-devel
+BuildRequires:	varconf-devel
 Requires:	%{name}-media
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -34,6 +37,8 @@ bazuj±cymi na perspektywie iso 2:1.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
+%patch3 -p1
 
 %build
 rm -f missing
@@ -42,6 +47,7 @@ rm -f missing
 %{__libtoolize}
 %{__automake}
 %{__autoconf}
+CXXFLAGS="%{rpmcflags} -fpermissive"
 %configure
 %{__make}
 
