@@ -72,10 +72,11 @@ bibliotek UCLIENT.
 %patch1 -p1
 
 %build
-aclocal
-autoheader
-libtoolize --automake --copy --force
-automake --add-missing --copy --gnu --force
+rm -f missing
+%{__aclocal}
+%{__autoheader}
+%{__libtoolize}
+%{__automake}
 %{__autoconf}
 %configure
 %{__make}
@@ -85,8 +86,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-install -m 755 registry/Registry.la $RPM_BUILD_ROOT%{_libdir}/Registry.la
-install -m 755 registry/.libs/Registry.so.0.0.0U \
+install registry/Registry.la $RPM_BUILD_ROOT%{_libdir}/Registry.la
+install registry/.libs/Registry.so.0.0.0U \
 	       $RPM_BUILD_ROOT%{_libdir}/Registry.so.0.0.0
 ln -sf Registry.so.0.0.0 $RPM_BUILD_ROOT%{_libdir}/Registry.so.0
 ln -sf Registry.so.0.0.0 $RPM_BUILD_ROOT%{_libdir}/Registry.so
