@@ -1,0 +1,98 @@
+diff -Nru uclient-0.14.0.orig/modules/Makefile.am uclient-0.14.0/modules/Makefile.am
+--- uclient-0.14.0.orig/modules/Makefile.am	Mon Mar  5 15:22:03 2001
++++ uclient-0.14.0/modules/Makefile.am	Thu Dec  6 19:19:28 2001
+@@ -43,7 +43,7 @@
+ # Chat_la_LDFLAGS = -dynamic -export-dynamic -module -version-info 0:1:0
+ 
+ App_la_SOURCES = app.h app.cc
+-App_la_LDFLAGS = -dynamic -export-dynamic -module -version-info 0:1:0 -lSDL
++App_la_LDFLAGS = -dynamic -export-dynamic -module -version-info 0:1:0 -L/usr/X11R6/lib -lSDL
+ 
+ Gui_la_SOURCES = gui.h gui.cc  
+ Gui_la_LDFLAGS = -dynamic -export-dynamic -module -version-info 0:1:0
+diff -Nru uclient-0.14.0.orig/registry/Makefile.am uclient-0.14.0/registry/Makefile.am
+--- uclient-0.14.0.orig/registry/Makefile.am	Mon Dec 11 10:05:01 2000
++++ uclient-0.14.0/registry/Makefile.am	Thu Dec  6 17:46:15 2001
+@@ -8,7 +8,7 @@
+ lib_LTLIBRARIES = Registry.la
+ Registry_la_SOURCES = registry.h registry.cc
+ Registry_la_LDFLAGS = -dynamic -export-dynamic -module 
+-Registry_la_LIBADD = -L../dii/.libs -ldii 
++Registry_la_LIBADD = -L../dii -ldii 
+ 
+ dll:
+ 	/usr/local/cross-tools/bin/i386-mingw32msvc-dllwrap -o Registry.dll \
+diff -Nru uclient-0.14.0.orig/uclient/Makefile.am uclient-0.14.0/uclient/Makefile.am
+--- uclient-0.14.0.orig/uclient/Makefile.am	Sat Jul 28 19:38:10 2001
++++ uclient-0.14.0/uclient/Makefile.am	Thu Dec  6 17:32:32 2001
+@@ -6,12 +6,6 @@
+ 
+ INCLUDES = -I../toolbox 
+ 
+-uclient_DEPENDENCIES = \
+-	../world/libworld.la ../dii/libdii.la \
+-	../media/libmedia.la ../toolbox/libtoolbox.la \
+-	../network/libnetwork.la ../script/libscript.la
+-
+-
+ uclient_SOURCES = \
+ 	uclient.cc \
+ 	uclient.h \
+@@ -27,13 +21,13 @@
+ ## as dynamic loadable modules and only the core libs are linked
+ ## with the executable (dynamically if possible)
+ uclient_LDADD = \
+-	-L../world/.libs -lworld \
+-	-L../media/.libs -lmedia \
+-	-L../network/.libs -lnetwork \
+-	-L../toolbox/.libs -ltoolbox \
+-	-L../dii/.libs -ldii \
+-	-L../script/.libs -lscript \
+-	-L../script/lua/.libs -llua \
++	-L../world -lworld \
++	-L../media -lmedia \
++	-L../network -lnetwork \
++	-L../toolbox -ltoolbox \
++	-L../dii -ldii \
++	-L../script -lscript \
++	-L../script/lua -llua \
+ 	$(PYTHON_LIBS) 
+ 
+ # -lefence
+diff -Nru uclient-0.14.0.orig/uedit/Makefile.am uclient-0.14.0/uedit/Makefile.am
+--- uclient-0.14.0.orig/uedit/Makefile.am	Thu Jun 21 04:18:17 2001
++++ uclient-0.14.0/uedit/Makefile.am	Thu Dec  6 19:43:59 2001
+@@ -4,12 +4,6 @@
+ 
+ INCLUDES = -I../toolbox 
+ 
+-uedit_DEPENDENCIES = \
+-	../world/libworld.la ../dii/libdii.la \
+-	../media/libmedia.la ../toolbox/libtoolbox.la \
+-	../network/libnetwork.la ../script/libscript.la
+-
+-
+ uedit_SOURCES = uedit.cc dispatcher.h dispatcher.cc sprites.h sprites.cc
+ 
+ if INSTALL_MODULES
+@@ -18,13 +12,13 @@
+ ## as dynamic loadable modules and only the core libs are linked
+ ## with the executable (dynamically if possible)
+ uedit_LDADD = \
+-	-L../world/.libs -lworld \
+-	-L../media/.libs -lmedia \
+-	-L../network/.libs -lnetwork \
+-	-L../toolbox/.libs -ltoolbox \
+-	-L../dii/.libs -ldii \
+-	-L../script/.libs -lscript \
+-	-L../script/lua/.libs -llua \
++	-L../world -lworld \
++	-L../media -lmedia \
++	-L../network -lnetwork \
++	-L../toolbox -ltoolbox \
++	-L../dii -ldii \
++	-L../script -lscript \
++	-L../script/lua -llua \
+ 	$(PYTHON_LIBS)
+ 
+ #allow dynamic libs to resolve symbols from the executable
