@@ -122,7 +122,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/forge
 %attr(755,root,root) %{_datadir}/forge/*.sh
 %{_datadir}/uclient
-%attr(777,root,root) %dir %{_var}/uclient
+%attr(777,root,root) %dir %{_var}/games/uclient
 
 %files libs
 %defattr(644,root,root,755)
