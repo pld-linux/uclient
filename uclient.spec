@@ -5,8 +5,6 @@ Version:	0.14.0
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
-Group(de):	X11/Applikationen/Spiele
-Group(pl):	X11/Aplikacje/Gry
 Source0:	ftp://victor.worldforge.org/pub/worldforge/clients/uclient/%{name}-%{version}.tar.gz
 Patch0:		%{name}-am.patch
 Patch1:		%{name}-vardir.patch
@@ -36,13 +34,6 @@ bazuj╠cymi na perspektywie iso 2:1.
 Summary:	UCLIENT libraries
 Summary(pl):	Biblioteki UCLIENT
 Group:		Libraries
-Group(de):	Libraries
-Group(es):	Bibliotecas
-Group(fr):	Librairies
-Group(pl):	Biblioteki
-Group(pt_BR):	Bibliotecas
-Group(ru):	Библиотеки
-Group(uk):	Б╕бл╕отеки
 
 %description libs
 UCLIENT is an isometric WorldForge client with items and tiles based
@@ -60,13 +51,6 @@ Ten pakiet zawiera biblioteki u©ywane przez program UCLIENT.
 Summary:	UCLIENT header files for development
 Summary(pl):	Pliki nagЁСwkowe UCLIENT
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
-Group(es):	Desarrollo/Bibliotecas
-Group(fr):	Development/Librairies
-Group(pl):	Programowanie/Biblioteki
-Group(pt_BR):	Desenvolvimento/Bibliotecas
-Group(ru):	Разработка/Библиотеки
-Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	janus-devel
 Requires:	libxml-devel
 Requires:	python-devel
