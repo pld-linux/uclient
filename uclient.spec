@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	ftp://victor.worldforge.org/pub/worldforge/clients/uclient/%{name}-%{version}.tar.gz
+# Source0-md5:	492d89d9ce5c6df13fc586ddec70f0a0
 Patch0:		%{name}-am.patch
 Patch1:		%{name}-vardir.patch
 BuildRequires:	Atlas-C++-devel
