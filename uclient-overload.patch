@@ -1,0 +1,15 @@
+diff -uprN uclient-0.15.1.old/dialogs/logindialog.cc uclient-0.15.1/dialogs/logindialog.cc
+--- uclient-0.15.1.old/dialogs/logindialog.cc	2003-10-06 18:18:50.000000000 -0700
++++ uclient-0.15.1/dialogs/logindialog.cc	2003-10-06 18:20:07.000000000 -0700
+@@ -158,9 +158,9 @@ LoginDialog::readData()
+     }
+      
+   if(id.empty())
+-    id = varconf::Config::inst()->getItem("server","login");
++    id = std::string(varconf::Config::inst()->getItem("server","login"));
+   if(hostname.empty())
+-    hostname = varconf::Config::inst()->getItem("server","hostname");
++    hostname = std::string(varconf::Config::inst()->getItem("server","hostname"));
+ 
+   //and write to the widgets
+   login_->setText(id.c_str());

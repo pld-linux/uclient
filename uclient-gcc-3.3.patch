@@ -1,0 +1,185 @@
+diff -urpN uclient-0.15.1.old/modules/appmod.h uclient-0.15.1/modules/appmod.h
+--- uclient-0.15.1.old/modules/appmod.h	2003-10-05 13:56:49.000000000 -0700
++++ uclient-0.15.1/modules/appmod.h	2003-10-05 14:07:24.000000000 -0700
+@@ -24,6 +24,7 @@
+ #ifndef _APP_MOD_H
+ #define _APP_MOD_H
+ 
++#include <assert.h>
+ #include <string>
+ #include <sigc++/object.h>
+ #include <uta/timer.h>
+diff -urpN uclient-0.15.1.old/modules/char_stats.h uclient-0.15.1/modules/char_stats.h
+--- uclient-0.15.1.old/modules/char_stats.h	2003-10-05 13:56:49.000000000 -0700
++++ uclient-0.15.1/modules/char_stats.h	2003-10-05 14:07:37.000000000 -0700
+@@ -24,6 +24,7 @@
+ #ifndef _CHARSTATS_H_
+ #define _CHARSTATS_H_
+ 
++#include <assert.h>
+ #include <sigc++/object.h>
+ #include <uta/button.h>
+ 
+diff -urpN uclient-0.15.1.old/modules/console.h uclient-0.15.1/modules/console.h
+--- uclient-0.15.1.old/modules/console.h	2003-10-05 13:56:49.000000000 -0700
++++ uclient-0.15.1/modules/console.h	2003-10-05 14:06:06.000000000 -0700
+@@ -24,6 +24,7 @@
+ #ifndef _CONSOLE_H_
+ #define _CONSOLE_H_
+ 
++#include <assert.h>
+ #include <Atlas/Objects/Operation/RootOperation.h>
+ #include <sigc++/object.h>
+ 
+diff -urpN uclient-0.15.1.old/modules/gui.cc uclient-0.15.1/modules/gui.cc
+--- uclient-0.15.1.old/modules/gui.cc	2003-10-05 13:56:49.000000000 -0700
++++ uclient-0.15.1/modules/gui.cc	2003-10-05 14:06:53.000000000 -0700
+@@ -64,6 +64,7 @@
+ #define PANEL_Y rootwin->height()-PANEL_HEIGHT-BORDER_HEIGHT
+ 
+ 
++#include <assert.h>
+ #include <sigc++/convert.h>
+ 
+ #include <uta/resources.h>
+diff -urpN uclient-0.15.1.old/modules/inventory.h uclient-0.15.1/modules/inventory.h
+--- uclient-0.15.1.old/modules/inventory.h	2003-10-05 13:56:49.000000000 -0700
++++ uclient-0.15.1/modules/inventory.h	2003-10-05 14:07:02.000000000 -0700
+@@ -24,6 +24,7 @@
+ #ifndef _INVENTORY_H_
+ #define _INVENTORY_H_
+ 
++#include <assert.h>
+ #include <sigc++/object.h>
+ 
+ #include "inventory_panel.h"
+diff -urpN uclient-0.15.1.old/modules/observer.h uclient-0.15.1/modules/observer.h
+--- uclient-0.15.1.old/modules/observer.h	2003-10-05 13:56:49.000000000 -0700
++++ uclient-0.15.1/modules/observer.h	2003-10-05 14:07:09.000000000 -0700
+@@ -24,6 +24,7 @@
+ #ifndef _OBSERVER_H_
+ #define _OBSERVER_H_
+ 
++#include <assert.h>
+ #include <sigc++/object.h>
+ 
+ #include "world/world_adaptor.h"
+diff -urpN uclient-0.15.1.old/modules/viewport.h uclient-0.15.1/modules/viewport.h
+--- uclient-0.15.1.old/modules/viewport.h	2003-10-05 13:56:49.000000000 -0700
++++ uclient-0.15.1/modules/viewport.h	2003-10-05 14:07:17.000000000 -0700
+@@ -24,6 +24,7 @@
+ #ifndef _VIEWPORT_H_
+ #define _VIEWPORT_H_
+ 
++#include <assert.h>
+ #include <sigc++/object.h>
+ #include <uta/widget.h>
+ 
+diff -urpN uclient-0.15.1.old/network/connection.cc uclient-0.15.1/network/connection.cc
+--- uclient-0.15.1.old/network/connection.cc	2003-10-05 13:56:49.000000000 -0700
++++ uclient-0.15.1/network/connection.cc	2003-10-05 14:05:45.000000000 -0700
+@@ -20,6 +20,7 @@
+ //
+ // created by Karsten Laux 01/2000
+ 
++#include <assert.h>
+ #include "connection.h"
+ #include "ftos.h"
+ 
+diff -urpN uclient-0.15.1.old/script/test.cpp uclient-0.15.1/script/test.cpp
+--- uclient-0.15.1.old/script/test.cpp	2003-10-05 13:56:51.000000000 -0700
++++ uclient-0.15.1/script/test.cpp	2003-10-05 14:05:45.000000000 -0700
+@@ -1,3 +1,4 @@
++#include <assert.h>
+ #include "lua_script.h"
+ 
+ #include <iostream> 
+diff -urpN uclient-0.15.1.old/terrain/terrain.cc uclient-0.15.1/terrain/terrain.cc
+--- uclient-0.15.1.old/terrain/terrain.cc	2003-10-05 13:56:48.000000000 -0700
++++ uclient-0.15.1/terrain/terrain.cc	2003-10-05 14:05:45.000000000 -0700
+@@ -21,6 +21,7 @@
+ // created by Karsten Laux 03/2000
+ 
+ 
++#include <assert.h>
+ #include "tilestretch.h"
+ 
+ #ifdef HAVE_CONFIG_H
+diff -urpN uclient-0.15.1.old/toolbox/Quaternion.h uclient-0.15.1/toolbox/Quaternion.h
+--- uclient-0.15.1.old/toolbox/Quaternion.h	2003-10-05 13:56:49.000000000 -0700
++++ uclient-0.15.1/toolbox/Quaternion.h	2003-10-05 14:05:45.000000000 -0700
+@@ -27,6 +27,7 @@
+ #ifndef _QUATERNION_H_
+ #define _QUATERNION_H_
+ 
++#include <assert.h>
+ #include "Tuple4.h"
+ #include "Vector.h"
+ 
+diff -urpN uclient-0.15.1.old/toolbox/Vector.h uclient-0.15.1/toolbox/Vector.h
+--- uclient-0.15.1.old/toolbox/Vector.h	2003-10-05 13:56:49.000000000 -0700
++++ uclient-0.15.1/toolbox/Vector.h	2003-10-05 14:05:45.000000000 -0700
+@@ -27,6 +27,7 @@
+ #ifndef _VECTOR_H_
+ #define _VECTOR_H_
+ 
++#include <assert.h>
+ #include "Tuple3.h"
+ 
+ class Vector : public Tuple3 {
+diff -urpN uclient-0.15.1.old/world/entity.cc uclient-0.15.1/world/entity.cc
+--- uclient-0.15.1.old/world/entity.cc	2003-10-05 13:56:47.000000000 -0700
++++ uclient-0.15.1/world/entity.cc	2003-10-05 14:05:45.000000000 -0700
+@@ -20,6 +20,7 @@
+ // 
+ // created by Karsten Laux 05/2000
+ 
++#include <assert.h>
+ #include "entity.h"
+ #include "dii/object.h"
+ #include "operation.h"
+diff -urpN uclient-0.15.1.old/world/heightmap.h uclient-0.15.1/world/heightmap.h
+--- uclient-0.15.1.old/world/heightmap.h	2003-10-05 13:56:47.000000000 -0700
++++ uclient-0.15.1/world/heightmap.h	2003-10-05 14:05:45.000000000 -0700
+@@ -1,6 +1,8 @@
+ #ifndef _WORLD_HEIGHTMAP_H_
+ #define _WORLD_HEIGHTMAP_H_
+ 
++#include <assert.h>
++
+ namespace World {
+ 
+ /** HeightMap class.
+diff -urpN uclient-0.15.1.old/world/world.cc uclient-0.15.1/world/world.cc
+--- uclient-0.15.1.old/world/world.cc	2003-10-05 13:56:47.000000000 -0700
++++ uclient-0.15.1/world/world.cc	2003-10-05 14:05:45.000000000 -0700
+@@ -20,6 +20,7 @@
+ // 
+ // created by Karsten Laux 01/2000
+ 
++#include <assert.h>
+ #include "world.h"
+ 
+ using namespace DII;
+diff -uprN uclient-0.15.1.old/media/sprite.cc uclient-0.15.1/media/sprite.cc
+--- uclient-0.15.1.old/media/sprite.cc	2003-10-06 18:18:50.000000000 -0700
++++ uclient-0.15.1/media/sprite.cc	2003-10-06 18:23:47.000000000 -0700
+@@ -23,6 +23,7 @@
+ //  written by Karsten <klaux@rhrk.uni-kl.de> in May 2000
+ 
+ 
++#include <assert.h>
+ #include "sprite.h"
+ #include <uta/debug.h>
+ #include <uta/painter.h>
+diff -urpN uclient-0.15.1.old/environment/environment.h uclient-0.15.1/environment/environment.h
+--- uclient-0.15.1.old/environment/environment.h	2003-10-06 18:47:19.000000000 -0700
++++ uclient-0.15.1/environment/environment.h	2003-10-06 18:57:10.000000000 -0700
+@@ -24,6 +24,7 @@
+ #ifndef _ENVIRONMENT_H_
+ #define _ENVIRONMENT_H_
+ 
++#include <assert.h>
+ #include <uta/timer.h>
+ #include <uta/sample.h>
+ #include <uta/surface.h>
