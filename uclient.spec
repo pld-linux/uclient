@@ -47,7 +47,6 @@ rm -f missing
 %{__libtoolize}
 %{__automake}
 %{__autoconf}
-CXXFLAGS="%{rpmcflags} -fpermissive"
 %configure
 %{__make}
 
