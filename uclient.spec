@@ -9,6 +9,7 @@ Group(de):	X11/Applikationen/Spiele
 Group(pl):	X11/Aplikacje/Gry
 Source0:	ftp://victor.worldforge.org/pub/worldforge/clients/uclient/%{name}-%{version}.tar.gz
 Patch0:		%{name}-am.patch
+Patch1:		%{name}-vardir.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
@@ -84,6 +85,7 @@ bibliotek UCLIENT.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 aclocal
@@ -120,9 +122,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/forge
 %attr(755,root,root) %{_datadir}/forge/*.sh
 %{_datadir}/uclient
-# ???!!! it should be moved to /var! In /usr nothing should be modified at runtime.
-%dir /usr/X11R6/share/var
-%attr(777,root,root) %dir /usr/X11R6/share/var/uclient
+%attr(777,root,root) %dir %{_var}/uclient
 
 %files libs
 %defattr(644,root,root,755)
