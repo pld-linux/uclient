@@ -1,4 +1,5 @@
 Summary:	Isometric WorldForge client
+Summary(pl):	Izometryczny klient WorldForge
 Name:		uclient
 Version:	0.14.0
 Release:	1
@@ -26,8 +27,13 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 UCLIENT is an isometric WorldForge client with items and tiles based
 on a 2:1 iso perspective.
 
+%description -l pl
+UCLIENT to izometryczny klient WorldForge z przedmiotami i kaflami
+bazuj±cymi na perspektywie iso 2:1.
+
 %package libs
 Summary:	UCLIENT libraries
+Summary(pl):	Biblioteki UCLIENT
 Group:		Libraries
 Group(de):	Libraries
 Group(es):	Bibliotecas
@@ -43,8 +49,15 @@ on a 2:1 iso perspective.
 
 This package contains the libraries used by UCLIENT program.
 
+%description libs -l pl
+UCLIENT to izometryczny klient WorldForge z przedmiotami i kaflami
+bazuj±cymi na perspektywie iso 2:1.
+
+Ten pakiet zawiera biblioteki u¿ywane przez program UCLIENT.
+
 %package devel
-Summary:	UCLIENT header files and libraries for development
+Summary:	UCLIENT header files for development
+Summary(pl):	Pliki nag³ówkowe UCLIENT
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
 Group(es):	Desarrollo/Bibliotecas
@@ -63,6 +76,10 @@ on a 2:1 iso perspective.
 
 This package contains the header files needed to develop programs that
 use UCLIENT libraries.
+
+%description devel -l pl
+Ten pakiet zawiera pliki nag³ówkowe do tworzenia programów z u¿yciem
+bibliotek UCLIENT.
 
 %prep
 %setup -q
@@ -85,13 +102,16 @@ rm -rf $RPM_BUILD_ROOT
 install -m 755 registry/Registry.la $RPM_BUILD_ROOT%{_libdir}/Registry.la
 install -m 755 registry/.libs/Registry.so.0.0.0U \
 	       $RPM_BUILD_ROOT%{_libdir}/Registry.so.0.0.0
-ln -s Registry.so.0.0.0 $RPM_BUILD_ROOT%{_libdir}/Registry.so.0
-ln -s Registry.so.0.0.0 $RPM_BUILD_ROOT%{_libdir}/Registry.so
+ln -sf Registry.so.0.0.0 $RPM_BUILD_ROOT%{_libdir}/Registry.so.0
+ln -sf Registry.so.0.0.0 $RPM_BUILD_ROOT%{_libdir}/Registry.so
 
 gzip -9 AUTHORS README* userdoc.txt
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post	libs -p /sbin/ldconfig
+%postun	libs -p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
@@ -100,13 +120,13 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/forge
 %attr(755,root,root) %{_datadir}/forge/*.sh
 %{_datadir}/uclient
+# ???!!! it should be moved to /var! In /usr nothing should be modified at runtime.
 %dir /usr/X11R6/share/var
 %attr(777,root,root) %dir /usr/X11R6/share/var/uclient
 
 %files libs
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/*.so.*.*
-%{_libdir}/*.so.0
 %attr(755,root,root) %{_libdir}/Bogo.so
 %attr(755,root,root) %{_libdir}/Testmod.so
 %{_libdir}/App.so
