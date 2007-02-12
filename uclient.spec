@@ -1,5 +1,5 @@
 Summary:	Isometric WorldForge client
-Summary(pl):	Izometryczny klient WorldForge
+Summary(pl.UTF-8):   Izometryczny klient WorldForge
 Name:		uclient
 Version:	0.15.1
 Release:	1
@@ -29,9 +29,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 UCLIENT is an isometric WorldForge client with items and tiles based
 on a 2:1 iso perspective.
 
-%description -l pl
+%description -l pl.UTF-8
 UCLIENT to izometryczny klient WorldForge z przedmiotami i kaflami
-bazuj±cymi na perspektywie iso 2:1.
+bazujÄ…cymi na perspektywie iso 2:1.
 
 %prep
 %setup -q
