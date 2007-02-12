@@ -1,5 +1,5 @@
 Summary:	Isometric WorldForge client
-Summary(pl.UTF-8):   Izometryczny klient WorldForge
+Summary(pl.UTF-8):	Izometryczny klient WorldForge
 Name:		uclient
 Version:	0.15.1
 Release:	1
