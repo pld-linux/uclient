@@ -21,6 +21,8 @@ BuildRequires:	python-devel
 BuildRequires:	skstream-devel
 BuildRequires:	varconf-devel
 Requires:	%{name}-media
+Obsoletes:	uclient-devel
+Obsoletes:	uclient-libs
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_datadir	/usr/share
@@ -53,7 +55,8 @@ rm -f missing
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
