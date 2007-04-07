@@ -11,6 +11,7 @@ Patch0:		%{name}-am.patch
 Patch1:		%{name}-vardir.patch
 Patch2:		%{name}-gcc-3.3.patch
 Patch3:		%{name}-overload.patch
+URL:		http://worldforge.org/dev/eng/clients/uclient/
 BuildRequires:	Atlas-C++-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -24,8 +25,6 @@ Requires:	%{name}-media
 Obsoletes:	uclient-devel
 Obsoletes:	uclient-libs
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_datadir	/usr/share
 
 %description
 UCLIENT is an isometric WorldForge client with items and tiles based
